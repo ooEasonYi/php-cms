@@ -167,7 +167,7 @@ class CategoryModel extends Model
         //获取所有分类
         $map['status'] = array('eq', 1);
         $map['group']  = array('eq', $id ? $info['group'] : $group);
-        $tree          = new \Common\Util\Tree();
+        $tree          = new Util\Tree();
         $list          = $this->field($field)->where($map)->order('sort asc, id asc')->select();
 
         // 转换成树结构

@@ -9,7 +9,7 @@
 namespace Cms\Admin;
 
 use Admin\Controller\AdminController;
-use Common\Util\Think\Tree;
+use Util\Tree;
 /**
  * 后台分类控制器
  * @author jry <598821125@qq.com>
@@ -192,9 +192,9 @@ EOF;
 
             // 获取前台模版供选择
             if (C('CURRENT_THEME')) {
-                $template_list = \Common\Util\File::get_dirs(getcwd() . '/Theme/' . C('CURRENT_THEME') . '/' . D('Index')->moduleName . '/Index');
+                $template_list = Util\File::get_dirs(getcwd() . '/Theme/' . C('CURRENT_THEME') . '/' . D('Index')->moduleName . '/Index');
             } else {
-                $template_list = \Common\Util\File::get_dirs(getcwd() . '/Application/' . D('Index')->moduleName . '/View/Index');
+                $template_list = Util\File::get_dirs(getcwd() . '/Application/' . D('Index')->moduleName . '/View/Index');
             }
             foreach ($template_list['file'] as $val) {
                 $val = substr($val, 0, -5);

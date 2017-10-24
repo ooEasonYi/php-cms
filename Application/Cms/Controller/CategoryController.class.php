@@ -9,7 +9,7 @@
 namespace Cms\Controller;
 
 use Home\Controller\HomeController;
-use Common\Util\Think\Tree;
+use Util\Tree;
 /**
  * 分类控制器
  * @author jry <598821125@qq.com>
@@ -32,7 +32,7 @@ class CategoryController extends HomeController
             ->where($map)->order('sort asc,id asc')->select();
 
         // 转换成树状列表
-        $tree          = new Tree1();
+        $tree          = new Tree();
         $category_list = $tree->list_to_tree($data_list);
 
         $this->success('分类列表', '' . array('data' => $category_list));
