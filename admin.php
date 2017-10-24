@@ -55,7 +55,7 @@ define('RUNTIME_PATH', './Runtime/');
  * 静态缓存目录设置
  * 此目录必须可写，建议移动到非WEB目录
  */
-define('HTML_PATH', RUNTIME_PATH . 'Html/');
+define('HTML_PATH', RUNTIME_PATH . './Html/');
 
 /**
  * 包含开发模式数据库连接配置
