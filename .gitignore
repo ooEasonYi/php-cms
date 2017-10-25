@@ -6,3 +6,9 @@ node_modules/
 !*.md
 !/vendor
 
+.htaccess
+.htaccess
+.vscode/launch.json
+*.txt
+LICENSE
+php-cms.zip
