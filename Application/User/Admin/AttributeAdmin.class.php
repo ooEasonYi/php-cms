@@ -79,7 +79,8 @@ EOF;
             ->addTableColumn('title', '标题')
             ->addTableColumn('type', '类型', 'type')
             ->addTableColumn('ctime', '发布时间', 'time')
-            ->addTableColumn('status', '状态', 'status')
+            ->addTableColumn('status', '状态333', 'status')
+            ->addTableColumn('status', '状态2', 'status')
             ->addTableColumn('right_button', '操作', 'btn')
             ->setTableDataList($attribute_list) // 数据列表
             ->setTableDataPage($page->show()) // 数据列表分页

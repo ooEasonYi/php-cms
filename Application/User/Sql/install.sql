@@ -1,3 +1,26 @@
+CREATE TABLE IF NOT EXISTS `oc_guest_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'UID',
+  `user_type` int(11) NOT NULL DEFAULT '1' COMMENT '用户类型',
+  `nickname` varchar(63) DEFAULT NULL COMMENT '昵称',
+  `username` varchar(31) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(63) NOT NULL DEFAULT '' COMMENT '密码',
+  `email` varchar(63) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `email_bind` tinyint(1) NOT NULL DEFAULT '0' COMMENT '邮箱验证',
+  `mobile` varchar(11) NOT NULL DEFAULT '' COMMENT '手机号',
+  `mobile_bind` tinyint(1) NOT NULL DEFAULT '0' COMMENT '邮箱验证',
+  `avatar` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '头像',
+  `score` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '积分',
+  `money` decimal(11,2) NOT NULL DEFAULT '0.00' COMMENT '余额',
+  `reg_ip` bigint(20) NOT NULL DEFAULT '0' COMMENT '注册IP',
+  `reg_type` varchar(15) NOT NULL DEFAULT '' COMMENT '注册方式',
+  `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `rank` tinyint(3) DEFAULT '0' COMMENT '等级',
+  `status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户账号表';
+
 CREATE TABLE `oc_user_attribute` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL DEFAULT '' COMMENT '字段名',

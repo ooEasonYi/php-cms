@@ -66,6 +66,7 @@ class UserAdmin extends AdminController
             ->addTableColumn('score', '积分')
             ->addTableColumn('money', '余额')
             ->addTableColumn('create_time', '注册时间', 'time')
+            ->addTableColumn('rank', '等级', 'callback',D('User/User'),'user_rank')
             ->addTableColumn('status', '状态', 'status')
             ->addTableColumn('right_button', '操作', 'btn')
             ->setTableDataList($data_list) // 数据列表
@@ -106,6 +107,7 @@ class UserAdmin extends AdminController
                 ->addFormItem('username', 'text', '用户名', '用户名')
                 ->addFormItem('password', 'password', '密码', '密码')
                 ->addFormItem('email', 'text', '邮箱', '邮箱')
+                ->addFormItem('rank', 'select', '等级' , '等级' , D('User/User')->user_rank())
                 ->addFormItem('email_bind', 'radio', '邮箱绑定', '手机绑定', array('1' => '已绑定', '0' => '未绑定'))
                 ->addFormItem('mobile', 'text', '手机号', '手机号')
                 ->addFormItem('mobile_bind', 'radio', '手机绑定', '手机绑定', array('1' => '已绑定', '0' => '未绑定'))
@@ -133,7 +135,7 @@ class UserAdmin extends AdminController
             $data        = $user_object->create();
             if ($data) {
                 $result = $user_object
-                    ->field('id,nickname,username,password,email,email_bind,mobile,mobile_bind,gender,avatar,update_time')
+                    ->field('id,nickname,username,password,email,email_bind,mobile,mobile_bind,gender,avatar,update_time,rank')
                     ->save($data);
                 if ($result) {
                     $this->success('更新成功', U('index'));
@@ -158,6 +160,7 @@ class UserAdmin extends AdminController
                 ->addFormItem('username', 'text', '用户名', '用户名')
                 ->addFormItem('password', 'password', '密码', '密码')
                 ->addFormItem('email', 'text', '邮箱', '邮箱')
+                ->addFormItem('rank', 'select', '等级', '等级',D('User/User')->user_rank())
                 ->addFormItem('email_bind', 'radio', '邮箱绑定', '手机绑定', array('1' => '已绑定', '0' => '未绑定'))
                 ->addFormItem('mobile', 'text', '手机号', '手机号')
                 ->addFormItem('mobile_bind', 'radio', '手机绑定', '手机绑定', array('1' => '已绑定', '0' => '未绑定'))

@@ -20,7 +20,7 @@ class UserModel extends Model
      * 数据库表名
      * @author jry <598821125@qq.com>
      */
-    protected $tableName = 'admin_user';
+    protected $tableName = 'guest_user';
 
     /**
      * 自动验证规则
@@ -116,7 +116,16 @@ class UserModel extends Model
         $list[-1] = '<i class="fa fa-venus text-danger color-pink"></i>';
         return isset($id) ? $list[$id] : '';
     }
-
+    /**
+     * 用户级别
+     */
+    public function user_rank($id)
+    {
+        $list[0]  = 'aaa';
+        $list[1]  = 'bbb';
+        $list[2] = 'ccc';
+        return isset($id) ? $list[$id] : $list;
+    }
     /**
      * 检测用户名是不是被禁止注册
      * @param  string $username 用户名
